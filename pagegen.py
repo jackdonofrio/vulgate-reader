@@ -57,7 +57,7 @@ def pagify(chapter_data, chapter_number, book_name, chapter_counts):
         if book == 'Matthew':
             page += "</p><h4>New Testament</h4><p>"
 
-        page += f'<a href="https://jackdonofrio.github.io/vulgate-reader/{book}/1">{book} </a>' + (' * ' * (book != '2 Maccabees' and book != 'Revelation'))
+        page += f'<a href="https://jackdonofrio.github.io/vulgate-reader/vul/{book}/1">{book} </a>' + (' * ' * (book != '2 Maccabees' and book != 'Revelation'))
 
     page += f'</p>{chapter_data}</body></html>'
     return page
@@ -70,7 +70,7 @@ def format_chapter(raw_text, chapter_number, book_name, chapter_counts, cached_n
         if c == chapter_number:
             chapter_data += f'<b style="color: red">{c}</b> '
         else:
-            chapter_data += f'<a href="https://jackdonofrio.github.io/vulgate-reader/{book_name}/{c}">{c}</a>  '
+            chapter_data += f'<a href="https://jackdonofrio.github.io/vulgate-reader/vul/{book_name}/{c}">{c}</a>  '
     chapter_data += f"</p><p>{raw_text}</p>"
     return pagify(chapter_data, roman_chapter_number, book_name, chapter_counts)
 
@@ -131,4 +131,3 @@ with open(f"{translation}.tsv") as file:
 
         current_chapter_text += f"<a style='color:red; font-weight:bold'  href='https://jackdonofrio.github.io/librum-apertum/{translation}/{current_book}/{current_chapter_number}/{verse_number}'>{verse_number}</a> {verse} "
 
-print(len(count_chapters(translation)))
