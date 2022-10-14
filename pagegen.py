@@ -56,8 +56,11 @@ def pagify(chapter_data, chapter_number, book_name, chapter_counts):
     for book in chapter_counts.keys():
         if book == 'Matthew':
             page += "</p><h4>New Testament</h4><p>"
-
-        page += f'<a href="https://jackdonofrio.github.io/vulgate-reader/vul/{book}/1">{book} </a>' + (' * ' * (book != '2 Maccabees' and book != 'Revelation'))
+        if book == book_name:
+            page += f'<b style="color:red">{book}</b>'
+        else:
+            page += f'<a href="https://jackdonofrio.github.io/vulgate-reader/vul/{book}/1">{book} </a>'
+        page += (' * ' * (book != '2 Maccabees' and book != 'Revelation'))
 
     page += f'</p>{chapter_data}</body></html>'
     return page
