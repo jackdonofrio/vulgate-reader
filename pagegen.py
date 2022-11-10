@@ -49,6 +49,9 @@ def pagify(chapter_data, chapter_number, book_name, chapter_counts):
                 a {
                     text-decoration: inherit;
                   }
+                a:hover {
+                    text-decoration: underline;
+                }
             </style>
         </head>
         <body><h4>Old Testament</h4><p>
@@ -59,7 +62,7 @@ def pagify(chapter_data, chapter_number, book_name, chapter_counts):
         if book == book_name:
             page += f'<b style="color:red">{book}</b>'
         else:
-            page += f'<a href="https://jackdonofrio.github.io/vulgate-reader/vul/{book}/1">{book} </a>'
+            page += f'<a href="https://jackdonofrio.github.io/vulgate-reader/vul/{book}/1">{book}</a>'
         page += (' * ' * (book != '2 Maccabees' and book != 'Revelation'))
 
     page += f'</p>{chapter_data}</body></html>'
