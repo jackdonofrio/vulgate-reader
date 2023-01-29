@@ -132,6 +132,8 @@ with open(f"{translation}.tsv") as file:
         verse_number = row[4]
         verse = row[5]
         verse = re.sub(r'[\[|\]]', r'', verse) # these appear throughout the source file
+        verse = re.sub(r'[æ]', r'ae', verse) # fix diphthongs in source file
+        verse = re.sub(r'[ë]', r'e', verse)
         verse = re.sub(r'[A-z]+',
                 lambda match:  r'<a style="color: inherit;"  href="https://en.wiktionary.org/wiki/{}#Latin">{}</a>'.format(match.group(0).lower() if match.start() == 0 else match.group(0), match.group(0)), verse)
 
