@@ -1,8 +1,8 @@
 """
-Messy code..
-I'll fix it later.
-
+Generates a set of static webpages for reading the Latin Vulgate.
 This is completely for fun.
+
+Written by Jack Donofrio, 2022-2023
 """
 
 import csv
